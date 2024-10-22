@@ -24,7 +24,7 @@ services:
     container_name: logstash
     volumes:
       - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
-      - C:/Users/DELL/Desktop/elk-stack/robot_logs.json:/usr/share/logstash/logs/robot_logs.json
+      - robot_logs:/usr/share/logstash/logs/robot_logs.json  # Update to use named volume
     environment:
       LS_JAVA_OPTS: "-Xmx256m -Xms256m"
     ports:
@@ -58,3 +58,4 @@ services:
 volumes:
   es_data:
   grafana_data:
+  robot_logs:  # Declare named volume for Logstash
