@@ -1,3 +1,4 @@
+version: '3.8'
 services:
   elasticsearch:
     image: vivekdhole96/elasticsearch:8.9.0
@@ -23,7 +24,7 @@ services:
     container_name: logstash
     volumes:
       - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
-      - robot_logs:/usr/share/logstash/logs/robot_logs.json  # Update to use named volume
+      - C:/Users/DELL/Desktop/elk-stack/robot_logs.json:/usr/share/logstash/logs/robot_logs.json
     environment:
       LS_JAVA_OPTS: "-Xmx256m -Xms256m"
     ports:
@@ -57,4 +58,3 @@ services:
 volumes:
   es_data:
   grafana_data:
-  robot_logs:  # Declare named volume for Logstash
